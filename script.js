@@ -2,9 +2,9 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 
-const API_ENDPOINT = "https://asia-southeast1-comp2030vinuniadmissionchatbot.cloudfunctions.net/ChatBotMain"
+const API_ENDPOINT = "https://us-central1-comp2030vinuniadmissionchatbot.cloudfunctions.net/function-1"
 // Icons made by Freepik from www.flaticon.com
-const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
+const BOT_IMG = "https://hostingviet.vn/data/tinymce/2021/2021.03/hosting-mien-phi-1.png";
 const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
@@ -18,7 +18,7 @@ msgerForm.addEventListener("submit", event => {
   appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
   msgerInput.value = "";
 
-  botResponse();
+  botResponse(msgText);
 });
 
 function appendMessage(name, img, side, message) {
@@ -42,13 +42,13 @@ function appendMessage(name, img, side, message) {
   msgerChat.scrollTop += 500;
 }
 
-async function botResponse() {
-  const msgText = "hi";
+async function botResponse(msgText) {
+
 
   try {
-    const data = await sendMessage(msgText);
-    print("-------")
-    const message = data.message;
+    const data =  await sendMessage(msgText);
+    console.log(data);
+    const message = data.name;
 
     appendMessage(BOT_NAME, BOT_IMG, "left", message);
   } catch (error) {
@@ -56,19 +56,17 @@ async function botResponse() {
   }
 }
 
-async function sendMessage(input) {
+async function sendMessage(inputString) {
   const response = await fetch(API_ENDPOINT, {
-    method: "POST",
+    method: 'POST',
+    //mode :"no-cors",
     headers: {
-      "Content-Type": "application/json",
+        'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ input }),
-    mode: "no-cors"
-  });
+    body : JSON.stringify( {input : inputString}),
+})
 
-  const data = await response.text
-
-  return data
+  return await response.json();
 }
 // Utils
 function get(selector, root = document) {
