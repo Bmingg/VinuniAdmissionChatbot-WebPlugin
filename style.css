@@ -97,6 +97,11 @@ body {
   position: absolute;
   left: 10px;
 }
+.dropdown-arrow-img {
+  position: absolute;
+  right: -97px;
+  top: 9px;
+}
 .intent-list {
   width: 88%;
   height: 40px;
