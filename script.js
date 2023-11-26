@@ -1,13 +1,14 @@
 const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
-
-const API_ENDPOINT = "https://us-central1-comp2030vinuniadmissionchatbot.cloudfunctions.net/function-1"
-// Icons made by Freepik from www.flaticon.com
+var loggedIn = false;
+var userHash = "";
+const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
 const BOT_IMG = "https://hostingviet.vn/data/tinymce/2021/2021.03/hosting-mien-phi-1.png";
 const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
+// TODO: get user's city by location at the beginning
 
 msgerForm.addEventListener("submit", event => {
   event.preventDefault();
@@ -22,7 +23,15 @@ msgerForm.addEventListener("submit", event => {
 });
 
 function appendMessage(name, img, side, message) {
-  //   Simple solution for small apps
+  if(loggedIn==false) {
+    userHash = generateHash();
+    localStorage.setItem("userHash",userHash);
+    loggedIn = true;
+  }
+  else {
+    userHash = localStorage.getItem("userHash");
+  }
+
   const msgHTML = `
     <div class="msg ${side}-msg">
       <div class="msg-bubble">
@@ -34,10 +43,17 @@ function appendMessage(name, img, side, message) {
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 }
+function checkIfLoggedIn() {
+  console.log("Storage: " +localStorage.getItem("userHash"));
+  if (localStorage.getItem("userHash")==null) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 
 async function botResponse(msgText) {
-
-
   try {
     const data =  await sendMessage(msgText);
     console.log(data);
@@ -52,15 +68,23 @@ async function botResponse(msgText) {
 async function sendMessage(inputString) {
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
-    //mode :"no-cors",
     headers: {
         'Content-Type': 'application/json',
     },
-    body : JSON.stringify( {input : inputString}),
-})
+    body : JSON.stringify( { userHash: userHash,topic : "finance",question: inputString}),
+}) 
+
 
   return await response.json();
 }
+
+function generateHash() {
+  const crypto = window.crypto || window.msCrypto;
+  const randomData = crypto.getRandomValues(new Uint32Array(32));
+  const hash = Array.from(randomData, byte => byte.toString(16).padStart(2, '0')).join('');
+  return hash;
+}
+
 // Utils
 function get(selector, root = document) {
   return root.querySelector(selector);
