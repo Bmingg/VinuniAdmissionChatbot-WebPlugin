@@ -2,8 +2,9 @@
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   --msger-bg: #fff;
   --border: 6px solid #2E5288;
-  --left-msg-bg: #ececec;
-  --right-msg-bg: #579ffb;
+  --left-msg-bg: #F5F5F5;
+  --right-msg-bg: #2E5288;
+  --paper-like-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 html {
@@ -44,7 +45,7 @@ body {
 .msger-header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 9px;
   border-bottom: var(--border);
   background: #2E5288;
   /* color: #2E5288; */
@@ -67,10 +68,66 @@ body {
 .msg {
   display: flex;
   align-items: flex-end;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .msg:last-of-type {
-  margin: 0;
+  margin-bottom: 0;
+}
+.nav-bar {
+  position: relative;
+  width: 88%;
+  height: 40px;
+  border-radius: 10px;
+  padding: 5px;
+  background: white;
+  border: 1px solid black;
+}
+.nav-text {
+  color: #2E5288;
+  padding: 5px 0;
+  margin-left: 40px;
+  font-weight: 550;
+}
+.bar-img {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.vinuni-img {
+  position: absolute;
+  left: 10px;
+}
+.dropdown-arrow-img {
+  position: absolute;
+  right: -97px;
+  top: 9px;
+}
+.intent-list {
+  width: 88%;
+  height: 40px;
+  border-radius: 10px;
+  padding: 5px;
+  background: #FFEAEA;
+}
+.intent-item {
+  /* display: flex; */
+  position: relative;
+}
+.intent-text {
+  color: #2E5288;
+  padding: 5px 0;
+  margin-left: 40px;
+  font-weight: 500;
+}
+.intent-icon-bg {
+  position: absolute;
+  /* padding: 5px; */
+  border-radius: 10px;
+  width: 34px;
+  height: 30px;
+  left: 2px;
+  top: -1px;
+  background: url(img/undergrad-program-img.svg)rgba(231, 108, 108, 0.40) no-repeat center center;
 }
 .msg-img {
   width: 50px;
@@ -83,10 +140,32 @@ body {
   border-radius: 50%;
 }
 .msg-bubble {
+  display: flex;
+  align-items: center;
+  position: relative;
   max-width: 450px;
+  min-height: 70px;
+  width: 80%;
   padding: 15px;
-  border-radius: 15px;
+  /* margin: 5px 0 5px 0; */
+  border-radius: 20px;
   background: var(--left-msg-bg);
+  box-shadow: var(--paper-like-shadow);
+}
+.copy-img {
+  position: absolute;
+  right: -32px;
+  top: 10px;
+}
+.link-img {
+  position: absolute;
+  right: -29px;
+  top: 37px;
+}
+.msg-text {
+  font-weight: 300;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .msg-info {
   display: flex;
@@ -105,9 +184,12 @@ body {
 .left-msg .msg-bubble {
   border-bottom-left-radius: 0;
 }
-
+.left-msg {
+  margin-left: 5px;
+}
 .right-msg {
   flex-direction: row-reverse;
+  margin-right: 5px;
 }
 .right-msg .msg-bubble {
   background: var(--right-msg-bg);
@@ -148,11 +230,12 @@ body {
 .msger-header-title {
   color: white;
   font-weight: 300;
+  font-size: 120%;
+  margin-left: 5px;
 }
 .msger-send-btn:hover {
   background: rgb(0, 180, 50);
 }
-
 .msger-chat {
   background-color: #fcfcfe;
   background-image: url();
