@@ -97,6 +97,14 @@ function formatDate(date) {
   return `${h.slice(-2)}:${m.slice(-2)}`;
 }
 
+function openChat() {
+  document.getElementById("chatbox").style.display = "flex";
+}
+
+function closeChat() {
+  document.getElementById("chatbox").style.display = "none";
+}
+
 /*
   <div class="msg ${side}-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>

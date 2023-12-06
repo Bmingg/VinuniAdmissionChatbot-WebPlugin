@@ -7,7 +7,8 @@
 
 </head>
 <body>
-<section class="msger">
+<button class="pop_up_button" onclick="openChat()"></button>
+<section class="msger" id="chatbox">
   <header class="msger-header">
     <div class="msger-header-title">
       <i class="fas fa-comment-alt"></i> <b>Vin</b>Genie
@@ -18,7 +19,7 @@
       <button class="header-btn refresh-btn">
         <img src="img/refresh.svg" alt="Refresh" />
       </button>
-      <button class="header-btn minimize-btn">
+      <button class="header-btn minimize-btn" onclick="closeChat()">
         <img src="img/minimize.svg" alt="Minimize" />
       </button>
     </div>
