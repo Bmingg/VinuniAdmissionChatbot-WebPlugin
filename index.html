@@ -8,81 +8,83 @@
 
 </head>
 <body>
-<button class="pop_up_button" onclick="openChat()"></button>
-<section class="msger" id="chatbox">
-  <header class="msger-header">
-    <div class="msger-header-title">
-      <i class="fas fa-comment-alt"></i> <b>Vin</b>Genie
-    </div>
+  <button class="pop_up_button" onclick="openChat()"></button>
+  <section class="msger" id="chatbox">
+    
+    <header class="msger-header">
+      <div class="msger-header-title">
+        <i class="fas fa-comment-alt"></i> <b>Vin</b>Genie
+      </div>
 
-    <div class="msger-header-controls">
-      <img src="img/red_header.svg" alt="Red Header" class="header-svg-pad"/>
-      <button class="header-btn refresh-btn">
-        <img src="img/refresh.svg" alt="Refresh" />
+      <div class="msger-header-controls">
+        <img src="img/red_header.svg" alt="Red Header" class="header-svg-pad"/>
+        <button class="header-btn refresh-btn">
+          <img src="img/refresh.svg" alt="Refresh" />
+        </button>
+        <button class="header-btn minimize-btn" onclick="closeChat()">
+          <img src="img/minimize.svg" alt="Minimize" />
+        </button>
+      </div>
+
+      <div class="msger-header-options">
+        <span><i class="fas fa-cog"></i></span>
+      </div>
+    </header>
+
+    <main class="msger-chat">
+
+      <div class="msg nav-bar">
+        <div class="nav-text">
+          All Topics
+        </div>
+        <img class="bar-img" src="img/🦆 icon _Bars_.svg">
+        <img class="vinuni-img" src="img/vinuni.svg">
+      </div>
+
+      <div class="msg intent-list">
+        <div class="intent-item">
+          <div class="intent-text">
+            Undergraduate Program
+          </div>
+          <div class="intent-icon-bg">
+              <!-- img of icon is set within the background in the css file -->
+          </div>
+          <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg">
+        </div>
+      </div>
+
+      <div class="msg left-msg">
+        <!-- <div
+        class="msg-img"
+        style="background-image: url(https://cdn.vietnambiz.vn/171464876016439296/2021/3/11/base64-1615432083878286495980.png)"
+        ></div> -->
+
+        <div class="msg-bubble">
+          <!-- <div class="msg-info">
+            <div class="msg-info-name">BOT</div>
+            <div class="msg-info-time">12:45</div>
+          </div> -->
+
+          <div class="msg-text">
+            What do you want to ask about Computer Science? 😄
+          </div>
+          <img class="copy-img" src="img/Copy.svg">
+          <img class="link-img" src="img/Link.png">
+        </div>
+      </div>
+
+    </main>
+
+    <form class="msger-inputarea">
+      <input type="text" class="msger-input" placeholder="Ask me anything...">
+      <button type="submit" class="msger-send-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 25 30" fill="none">
+          <path d="M7.60304 14.4388L13.9405 14.43M11.6869 5.56489L21.6924 10.5677C26.1826 12.8127 26.1737 16.4809 21.6924 18.7348L11.6869 23.7375C4.96053 27.1051 2.20281 24.3474 5.57041 17.6211L7.05533 14.6512L5.57041 11.6814C2.20281 4.95501 4.95169 2.20614 11.6869 5.56489Z" stroke="white" stroke-width="2.10714" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
-      <button class="header-btn minimize-btn" onclick="closeChat()">
-        <img src="img/minimize.svg" alt="Minimize" />
-      </button>
-    </div>
-
-    <div class="msger-header-options">
-      <span><i class="fas fa-cog"></i></span>
-    </div>
-  </header>
-
-  <main class="msger-chat">
-
-    <div class="msg nav-bar">
-      <div class="nav-text">
-        All Topics
-      </div>
-      <img class="bar-img" src="img/🦆 icon _Bars_.svg">
-      <img class="vinuni-img" src="img/vinuni.svg">
-    </div>
-
-    <div class="msg intent-list">
-      <div class="intent-item">
-        <div class="intent-text">
-          Undergraduate Program
-        </div>
-        <div class="intent-icon-bg">
-            <!-- img of icon is set within the background in the css file -->
-        </div>
-        <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg">
-      </div>
-    </div>
-
-    <div class="msg left-msg">
-      <!-- <div
-      class="msg-img"
-      style="background-image: url(https://cdn.vietnambiz.vn/171464876016439296/2021/3/11/base64-1615432083878286495980.png)"
-      ></div> -->
-
-      <div class="msg-bubble">
-        <!-- <div class="msg-info">
-          <div class="msg-info-name">BOT</div>
-          <div class="msg-info-time">12:45</div>
-        </div> -->
-
-        <div class="msg-text">
-          What do you want to ask about Computer Science? 😄
-        </div>
-        <img class="copy-img" src="img/Copy.svg">
-        <img class="link-img" src="img/Link.png">
-      </div>
-    </div>
-
-  </main>
-
-  <form class="msger-inputarea">
-    <input type="text" class="msger-input" placeholder="Ask me anything...">
-    <button type="submit" class="msger-send-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 25 30" fill="none">
-        <path d="M7.60304 14.4388L13.9405 14.43M11.6869 5.56489L21.6924 10.5677C26.1826 12.8127 26.1737 16.4809 21.6924 18.7348L11.6869 23.7375C4.96053 27.1051 2.20281 24.3474 5.57041 17.6211L7.05533 14.6512L5.57041 11.6814C2.20281 4.95501 4.95169 2.20614 11.6869 5.56489Z" stroke="white" stroke-width="2.10714" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </form>
-</section>
+    </form>
+    
+  </section>
 <!-- partial -->
   <script  src="./script.js"></script>
 
