@@ -65,6 +65,7 @@ body {
 
 .msger-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 9px;
   border-bottom: var(--border);
@@ -74,13 +75,12 @@ body {
 .msger-header-controls {
   display: flex;
   align-items: center;
-  margin-left: 220px;
   position: relative;
 }
 .header-svg-pad {
   position: absolute;
   border-radius: 0px 10px 0px 0px;
-  margin-left: -40px;
+  right: -10px;
   z-index: 1; 
   width: 120px;
   height: 44px;
@@ -318,8 +318,9 @@ body {
 .msger-header-title {
   color: white;
   font-weight: 300;
-  font-size: 120%;
+  font-size: 130%;
   margin-left: 5px;
+  margin-top: 2px;
 }
 
 .msger-chat {
