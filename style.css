@@ -1,3 +1,47 @@
+@media (min-width: 992px) {
+  .msger {
+    width: 400px;
+    height: 600px;
+    right: 10px;
+    margin: 25px 10px;
+  }
+  .msger-input {
+    width: 306px;
+    height: 50px;
+  }
+  /* .header-svg-pad {
+
+  } */
+}
+@media (min-width: 451px) and (max-width: 991px) {
+  .msger {
+    width: 350px;
+    height: 600px;
+    right: 5px;
+    margin: 15px 5px;
+  }
+  .msger-input {
+    width: 256px;
+    height: 50px;
+  }
+}
+@media (max-width: 450px) {
+  .msger {
+    width: calc(100% - 5px);
+    height: calc(100% - 20px);
+    right: 2px;
+    margin: 10px 0px;
+  }
+  .msger-input {
+    width: calc(100% - 52px);
+    height: 50px;
+  }
+  /* .msger-send-btn {
+    height: 
+  } */
+}
+
+
 :root {
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   --msger-bg: #fff;
@@ -50,13 +94,8 @@ body {
   display: flex;
   position: fixed;
   bottom: 0px;
-  right: 10px;
   flex-flow: column wrap;
   justify-content: space-between;
-  width: 400px;
-  max-width: 100%;
-  margin: 25px 10px;
-  height: 600px; /*calc(100% - 50px); */
   border: var(--border);
   border-radius: 10px;
   background: var(--msger-bg);
@@ -72,15 +111,24 @@ body {
   background: #2E5288;
   /* color: #2E5288; */
 }
+
+.msger-header-title {
+  color: white;
+  font-weight: 300;
+  font-size: 130%;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
 .msger-header-controls {
   display: flex;
   align-items: center;
-  position: relative;
+  gap: 15px;
 }
 .header-svg-pad {
   position: absolute;
   border-radius: 0px 10px 0px 0px;
-  right: -10px;
+  right: 0px;
   z-index: 1; 
   width: 120px;
   height: 44px;
@@ -88,12 +136,12 @@ body {
 }
 
 .header-btn {
-  position: relative;
+  /* position: relative; */
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   z-index: 2
 }
 
@@ -159,19 +207,20 @@ body {
 }
 .dropdown-arrow-img {
   position: absolute;
-  right: -115px;
-  top: 9px;
+  top: 13px;
+  right: 10px;
 }
 .intent-list {
+  
+}
+.intent-item {
+  /* display: flex; */
+  position: relative;
   width: 88%;
   height: 40px;
   border-radius: 10px;
   padding: 5px;
   background: #FFEAEA;
-}
-.intent-item {
-  /* display: flex; */
-  position: relative;
 }
 .intent-text {
   color: #2E5288;
@@ -185,20 +234,11 @@ body {
   border-radius: 10px;
   width: 34px;
   height: 30px;
-  left: 2px;
-  top: -1px;
+  left: 7px;
+  top: 5px;
   background: url(img/undergrad-program-img.svg)rgba(231, 108, 108, 0.40) no-repeat center center;
 }
-.msg-img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  background: #ddd;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-}
+
 .msg-bubble {
   display: flex;
   align-items: center;
@@ -256,9 +296,6 @@ body {
   color: #fff;
   border-bottom-right-radius: 0;
 }
-.right-msg .msg-img {
-  margin: 0 0 0 10px;
-}
 
 .msger-inputarea {
   display: flex;
@@ -288,8 +325,6 @@ body {
   /* flex: 1;
   background: #ddd;
   border-radius: 10px; */
-  width: 306px;
-  height: 50px;
   flex-shrink: 0;
   border-radius: 17px;
   background: #ddd;
@@ -303,24 +338,16 @@ body {
 .msger-send-btn {
   margin-left: 10px;
   display: flex;
-  width: 50px;
-  height: 50px;
   padding: 6px;
   justify-content: center;
   align-items: center;
+  width: 50px;
+  height: 50px;
   /* gap: 15.048px; */
   flex-shrink: 0;
   border-radius: 70.238px;
   background: #2E5288;
   box-shadow: 3px 3px 12px 0px rgba(23, 195, 206, 0.35);
-}
-
-.msger-header-title {
-  color: white;
-  font-weight: 300;
-  font-size: 130%;
-  margin-left: 5px;
-  margin-top: 2px;
 }
 
 .msger-chat {
