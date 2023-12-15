@@ -36,11 +36,19 @@
     width: calc(100% - 52px);
     height: 50px;
   }
-  /* .msger-send-btn {
-    height: 
-  } */
 }
-
+@media (max-height: 450px) {
+  .msger {
+    width: calc(100% - 5px);
+    height: calc(100% - 20px);
+    right: 2px;
+    margin: 10px 0px;
+  }
+  .msger-input {
+    width: calc(100% - 52px);
+    height: 50px;
+  }
+}
 
 :root {
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
