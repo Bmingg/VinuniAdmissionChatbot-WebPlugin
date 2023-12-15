@@ -228,13 +228,13 @@ body {
   height: 40px;
   border-radius: 10px;
   padding: 5px;
-  background: #FFEAEA;
+  background: #EAFFF2;
 }
 .intent-text {
   color: #2E5288;
   padding: 5px 0;
   margin-left: 40px;
-  font-weight: 500;
+  font-weight: 550;
 }
 .intent-icon-bg {
   position: absolute;
@@ -244,7 +244,7 @@ body {
   height: 30px;
   left: 7px;
   top: 5px;
-  background: url(img/undergrad-program-img.svg)rgba(231, 108, 108, 0.40) no-repeat center center;
+  background: url(img/skills.svg)rgba(95, 206, 193, 0.40) no-repeat center center;
 }
 
 .msg-bubble {
