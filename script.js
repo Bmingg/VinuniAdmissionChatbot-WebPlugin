@@ -104,13 +104,26 @@ function openChat() {
 function closeChat() {
   document.getElementById("chatbox").style.display = "none";
 }
+var chosen_intent_id;
+var intents = document.getElementsByClassName("intent-item");
 
-function closeIntentList() {
-  document.getElementById("intent-list").style.display = "none";
-}
+function closeIntentList(chosen_intent) {
+  chosen_intent_id = chosen_intent.parentNode.id;
+
+  for(var i=0, len=intents.length; i<len; i++)
+  {
+      console.log(intents[i].id);
+      console.log(chosen_intent_id);
+      if (intents[i].id != chosen_intent_id) {
+        intents[i].style.display = "none";
+      }
+  }
+} 
 
 function openIntentList() {
-  document.getElementById("intent-list").style.display = "flex";
+  for(var i=0, len=intents.length; i<len; i++) {
+        intents[i].style.display = "block";
+  }
 }
 /*
   <div class="msg ${side}-msg">

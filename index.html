@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>COMP2030- LightSeeker</title>
   <link rel="stylesheet" href="./style.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
   <button class="pop_up_button" onclick="openChat()"></button>
@@ -39,12 +39,22 @@
       </div>
 
       <div class="msg intent-list" id="intent-list">
-        <div class="intent-item finance-item">
-          <button class="intent-button" id="finance-button" onclick="closeIntentList()"></button>
+        <div class="intent-item" id="finance-intent">
+          <button class="intent-button" onclick="closeIntentList(this)"></button>
           <div class="intent-text">
             Financial Aid & Scholarships
           </div>
-          <div class="intent-icon-bg">
+          <div class="intent-icon-bg finance-icon-bg">
+              <!-- img of icon is set within the background in the css file -->
+          </div>
+          <!-- <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg"> -->
+        </div>
+        <div class="intent-item" id="student-life-intent">
+          <button class="intent-button" onclick="closeIntentList(this)"></button>
+          <div class="intent-text">
+            Student Life
+          </div>
+          <div class="intent-icon-bg std-life-icon-bg">
               <!-- img of icon is set within the background in the css file -->
           </div>
           <!-- <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg"> -->

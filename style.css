@@ -226,8 +226,14 @@ body {
 }
 .intent-list {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
   /* to be added */
+}
+#chosen-intent {
+  display: none;
 }
 .intent-item {
   /* display: flex; */
@@ -236,9 +242,14 @@ body {
   height: 40px;
   border-radius: 10px;
   padding: 5px;
-  background: #EAFFF2;
   /* border: solid 1px; */
   box-shadow: var(--intent-item-shadow);
+}
+#finance-intent {
+  background: #EAFFF2;
+}
+#student-life-intent{
+  background: #ECE3FF;
 }
 .intent-button {
   position: absolute;
@@ -265,9 +276,13 @@ body {
   height: 30px;
   left: 7px;
   top: 5px;
+}
+.finance-icon-bg {
   background: url(img/skills.svg)rgba(95, 206, 193, 0.40) no-repeat center center;
 }
-
+.std-life-icon-bg {
+  background: url(img/std-life-img.svg)#D0C1F0 no-repeat center center;
+}
 .msg-bubble {
   display: flex;
   align-items: center;
