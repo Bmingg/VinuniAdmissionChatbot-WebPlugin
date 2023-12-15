@@ -205,10 +205,15 @@ body {
   margin-left: 40px;
   font-weight: 550;
 }
-.bar-img {
+.bar-button {
   position: absolute;
+  cursor: pointer;
+  border: none;
+  width: 18px;
+  height: 18px;
   right: 10px;
   top: 10px;
+  background: url(img/🦆\ icon\ _Bars_.svg) rgb(255, 255, 255) no-repeat center center;
 }
 .vinuni-img {
   position: absolute;
@@ -220,7 +225,9 @@ body {
   right: 10px;
 }
 .intent-list {
-  
+  display: flex;
+  flex-direction: row;
+  /* to be added */
 }
 .intent-item {
   /* display: flex; */
@@ -233,10 +240,21 @@ body {
   /* border: solid 1px; */
   box-shadow: var(--intent-item-shadow);
 }
+.intent-button {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  background: none;
+  border: none;
+  top: 0px;
+  left: 0px;
+}
 .intent-text {
   color: #2E5288;
   padding: 5px 0;
   margin-left: 40px;
+  font-size: 1em;
   font-weight: 550;
 }
 .intent-icon-bg {

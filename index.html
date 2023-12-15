@@ -13,7 +13,7 @@
     
     <header class="msger-header">
       <div class="msger-header-title">
-        <i class="fas fa-comment-alt"></i> <b>Vin</b>Genie
+        <b>Vin</b>Genie
       </div>
 
       <div class="msger-header-controls">
@@ -32,12 +32,15 @@
         <div class="nav-text">
           All Topics
         </div>
-        <img class="bar-img" src="img/🦆 icon _Bars_.svg">
+        <button class="bar-button" onclick="openIntentList()">
+          <!-- img of the button is set in its background -->
+        </button>
         <img class="vinuni-img" src="img/vinuni.svg">
       </div>
 
-      <div class="msg intent-list">
-        <div class="intent-item">
+      <div class="msg intent-list" id="intent-list">
+        <div class="intent-item finance-item">
+          <button class="intent-button" id="finance-button" onclick="closeIntentList()"></button>
           <div class="intent-text">
             Financial Aid & Scholarships
           </div>
@@ -46,6 +49,7 @@
           </div>
           <!-- <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg"> -->
         </div>
+        <!-- Add more intent-item div below this line -->
       </div>
 
       <div class="msg left-msg">

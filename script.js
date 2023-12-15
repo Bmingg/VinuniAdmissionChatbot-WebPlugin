@@ -105,6 +105,13 @@ function closeChat() {
   document.getElementById("chatbox").style.display = "none";
 }
 
+function closeIntentList() {
+  document.getElementById("intent-list").style.display = "none";
+}
+
+function openIntentList() {
+  document.getElementById("intent-list").style.display = "flex";
+}
 /*
   <div class="msg ${side}-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>
