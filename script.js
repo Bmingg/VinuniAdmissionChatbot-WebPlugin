@@ -16,13 +16,13 @@ msgerForm.addEventListener("submit", event => {
   const msgText = msgerInput.value;
   if (!msgText) return;
 
-  appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+  appendMessage("right", msgText);
   msgerInput.value = "";
 
   botResponse(msgText);
 });
 
-function appendMessage(name, img, side, message) {
+function appendMessage(side, message) {
   if(loggedIn==false) {
     userHash = generateHash();
     localStorage.setItem("userHash",userHash);
@@ -59,7 +59,7 @@ async function botResponse(msgText) {
     console.log(data);
     const message = data.name;
 
-    appendMessage(BOT_NAME, BOT_IMG, "left", message);
+    appendMessage("left", message);
   } catch (error) {
     console.error(error);
   }
