@@ -57,6 +57,7 @@
   --left-msg-bg: #F5F5F5;
   --right-msg-bg: #2E5288;
   --paper-like-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --intent-item-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
 }
 
 html {
@@ -229,6 +230,8 @@ body {
   border-radius: 10px;
   padding: 5px;
   background: #EAFFF2;
+  /* border: solid 1px; */
+  box-shadow: var(--intent-item-shadow);
 }
 .intent-text {
   color: #2E5288;

@@ -4,8 +4,8 @@ const msgerChat = get(".msger-chat");
 var loggedIn = false;
 var userHash = "";
 const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
-const BOT_IMG = "https://hostingviet.vn/data/tinymce/2021/2021.03/hosting-mien-phi-1.png";
-const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
+const BOT_IMG = "";
+const PERSON_IMG = "";
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
 // TODO: get user's city by location at the beginning
