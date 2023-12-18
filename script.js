@@ -3,9 +3,8 @@ const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 var loggedIn = false;
 var userHash = "";
+var topic = "";
 const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
-const BOT_IMG = "";
-const PERSON_IMG = "";
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
 // TODO: get user's city by location at the beginning
@@ -55,7 +54,7 @@ function checkIfLoggedIn() {
 
 async function botResponse(msgText) {
   try {
-    const data =  await sendMessage(msgText);
+    const data =  await sendMessage(msgText, topic);
     console.log(data);
     const message = data.name;
 
@@ -65,15 +64,15 @@ async function botResponse(msgText) {
   }
 }
 
-async function sendMessage(inputString) {
+async function sendMessage(inputString, topic) {
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
     },
-    body : JSON.stringify( { userHash: userHash,topic : "finance",question: inputString}),
+    body : JSON.stringify( { userHash: userHash,topic : topic,question: inputString}),
 }) 
-
+  console.log(topic);
 
   return await response.json();
 }
@@ -104,18 +103,23 @@ function openChat() {
 function closeChat() {
   document.getElementById("chatbox").style.display = "none";
 }
+var chosen_intent_id;
+var intents = document.getElementsByClassName("intent-item");
 
-/*
-  <div class="msg ${side}-msg">
-      <div class="msg-img" style="background-image: url(${img})"></div>
+function closeIntentList(chosen_intent) {
+  chosen_intent_id = chosen_intent.parentNode.id;
 
-      <div class="msg-bubble">
-        <div class="msg-info">
-          <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${formatDate(new Date())}</div>
-        </div>
+  for(var i=0, len=intents.length; i<len; i++)
+  {
+      if (intents[i].id != chosen_intent_id) {
+        intents[i].style.display = "none";
+      }
+  }
+  topic = chosen_intent_id
+} 
 
-        <div class="msg-text">${message}</div>
-      </div>
-    </div>
-*/
+function openIntentList() {
+  for(var i=0, len=intents.length; i<len; i++) {
+        intents[i].style.display = "block";
+  }
+}

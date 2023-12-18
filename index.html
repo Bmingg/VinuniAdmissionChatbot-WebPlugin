@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>COMP2030- LightSeeker</title>
   <link rel="stylesheet" href="./style.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
   <button class="pop_up_button" onclick="openChat()"></button>
@@ -13,7 +13,7 @@
     
     <header class="msger-header">
       <div class="msger-header-title">
-        <i class="fas fa-comment-alt"></i> <b>Vin</b>Genie
+        <b>Vin</b>Genie
       </div>
 
       <div class="msger-header-controls">
@@ -32,20 +32,34 @@
         <div class="nav-text">
           All Topics
         </div>
-        <img class="bar-img" src="img/🦆 icon _Bars_.svg">
+        <button class="bar-button" onclick="openIntentList()">
+          <!-- img of the button is set in its background -->
+        </button>
         <img class="vinuni-img" src="img/vinuni.svg">
       </div>
 
-      <div class="msg intent-list">
-        <div class="intent-item">
-          <div class="intent-text">
+      <div class="msg intent-list" id="intent-list">
+        <div class="intent-item" id="finance">
+          <button class="intent-button" onclick="closeIntentList(this)"></button>
+          <div class="intent-text" id="finance-text">
             Financial Aid & Scholarships
           </div>
-          <div class="intent-icon-bg">
+          <div class="intent-icon-bg finance-icon-bg">
               <!-- img of icon is set within the background in the css file -->
           </div>
           <!-- <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg"> -->
         </div>
+        <div class="intent-item" id="residence_life_guidelines">
+          <button class="intent-button" onclick="closeIntentList(this)"></button>
+          <div class="intent-text" id="std-life-text">
+            Student Life
+          </div>
+          <div class="intent-icon-bg std-life-icon-bg">
+              <!-- img of icon is set within the background in the css file -->
+          </div>
+          <!-- <img class="dropdown-arrow-img" src="img/🦆 icon _Caret Down_.svg"> -->
+        </div>
+        <!-- Add more intent-item div below this line -->
       </div>
 
       <div class="msg left-msg">

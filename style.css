@@ -205,10 +205,15 @@ body {
   margin-left: 40px;
   font-weight: 550;
 }
-.bar-img {
+.bar-button {
   position: absolute;
+  cursor: pointer;
+  border: none;
+  width: 18px;
+  height: 18px;
   right: 10px;
   top: 10px;
+  background: url(img/🦆\ icon\ _Bars_.svg) rgb(255, 255, 255) no-repeat center center;
 }
 .vinuni-img {
   position: absolute;
@@ -220,7 +225,15 @@ body {
   right: 10px;
 }
 .intent-list {
-  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  /* to be added */
+}
+#chosen-intent {
+  display: none;
 }
 .intent-item {
   /* display: flex; */
@@ -229,14 +242,30 @@ body {
   height: 40px;
   border-radius: 10px;
   padding: 5px;
-  background: #EAFFF2;
   /* border: solid 1px; */
   box-shadow: var(--intent-item-shadow);
+}
+#finance-intent {
+  background: #EAFFF2;
+}
+#student-life-intent{
+  background: #ECE3FF;
+}
+.intent-button {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  background: none;
+  border: none;
+  top: 0px;
+  left: 0px;
 }
 .intent-text {
   color: #2E5288;
   padding: 5px 0;
   margin-left: 40px;
+  font-size: 1em;
   font-weight: 550;
 }
 .intent-icon-bg {
@@ -247,9 +276,13 @@ body {
   height: 30px;
   left: 7px;
   top: 5px;
+}
+.finance-icon-bg {
   background: url(img/skills.svg)rgba(95, 206, 193, 0.40) no-repeat center center;
 }
-
+.std-life-icon-bg {
+  background: url(img/std-life-img.svg)#D0C1F0 no-repeat center center;
+}
 .msg-bubble {
   display: flex;
   align-items: center;
