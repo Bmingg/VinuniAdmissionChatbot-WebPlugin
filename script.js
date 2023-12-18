@@ -3,9 +3,8 @@ const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 var loggedIn = false;
 var userHash = "";
+var topic = "";
 const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
-const BOT_IMG = "";
-const PERSON_IMG = "";
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
 // TODO: get user's city by location at the beginning
@@ -16,13 +15,13 @@ msgerForm.addEventListener("submit", event => {
   const msgText = msgerInput.value;
   if (!msgText) return;
 
-  appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+  appendMessage("right", msgText);
   msgerInput.value = "";
 
   botResponse(msgText);
 });
 
-function appendMessage(name, img, side, message) {
+function appendMessage(side, message) {
   if(loggedIn==false) {
     userHash = generateHash();
     localStorage.setItem("userHash",userHash);
@@ -55,25 +54,25 @@ function checkIfLoggedIn() {
 
 async function botResponse(msgText) {
   try {
-    const data =  await sendMessage(msgText);
+    const data =  await sendMessage(msgText, topic);
     console.log(data);
     const message = data.name;
 
-    appendMessage(BOT_NAME, BOT_IMG, "left", message);
+    appendMessage("left", message);
   } catch (error) {
     console.error(error);
   }
 }
 
-async function sendMessage(inputString) {
+async function sendMessage(inputString, topic) {
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
     },
-    body : JSON.stringify( { userHash: userHash,topic : "finance",question: inputString}),
+    body : JSON.stringify( { userHash: userHash,topic : topic,question: inputString}),
 }) 
-
+  console.log(topic);
 
   return await response.json();
 }
@@ -112,12 +111,11 @@ function closeIntentList(chosen_intent) {
 
   for(var i=0, len=intents.length; i<len; i++)
   {
-      console.log(intents[i].id);
-      console.log(chosen_intent_id);
       if (intents[i].id != chosen_intent_id) {
         intents[i].style.display = "none";
       }
   }
+  topic = chosen_intent_id
 } 
 
 function openIntentList() {
@@ -125,17 +123,3 @@ function openIntentList() {
         intents[i].style.display = "block";
   }
 }
-/*
-  <div class="msg ${side}-msg">
-      <div class="msg-img" style="background-image: url(${img})"></div>
-
-      <div class="msg-bubble">
-        <div class="msg-info">
-          <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${formatDate(new Date())}</div>
-        </div>
-
-        <div class="msg-text">${message}</div>
-      </div>
-    </div>
-*/
