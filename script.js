@@ -115,6 +115,8 @@ function closeIntentList(chosen_intent) {
         intents[i].style.display = "none";
       }
   }
+
+  document.getElementsByClassName("nav-bar")[0].style.display = "block";
   topic = chosen_intent_id
 } 
 

@@ -198,6 +198,7 @@ body {
   padding: 5px;
   background: white;
   border: 1px solid black;
+  display: none;
 }
 .nav-text {
   color: #2E5288;
@@ -218,6 +219,7 @@ body {
 .vinuni-img {
   position: absolute;
   left: 10px;
+  top: 6px;
 }
 .dropdown-arrow-img {
   position: absolute;
