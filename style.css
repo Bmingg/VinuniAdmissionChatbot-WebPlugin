@@ -226,7 +226,7 @@ body {
   top: 13px;
   right: 10px;
 }
-.intent-list {
+.intent-list { 
   display: flex;
   justify-content: center;
   align-items: flex-start;

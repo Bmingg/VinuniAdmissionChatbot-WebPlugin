@@ -4,6 +4,7 @@ const msgerChat = get(".msger-chat");
 var loggedIn = false;
 var userHash = "";
 var topic = "";
+var counter = 0;
 const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
@@ -109,6 +110,11 @@ var intents = document.getElementsByClassName("intent-item");
 function closeIntentList(chosen_intent) {
   chosen_intent_id = chosen_intent.parentNode.id;
 
+  if (counter == 0) {
+    document.getElementById("welcome-msg").style.display = "none";
+    appendMessage("left", "Hello there! How may I assist you today? 😄");
+    counter += 1;
+  }
   for(var i=0, len=intents.length; i<len; i++)
   {
       if (intents[i].id != chosen_intent_id) {
