@@ -218,6 +218,7 @@ function updateQuestionText(intentName) {
     document.getElementById("welcome-msg").style.display = "none";
     counter += 1;
   }
+  document.getElementsByClassName("nav-bar")[0].style.display = "block";
   const questionTextElement = document.querySelector('.msg-bubble .msg-text');
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
