@@ -74,6 +74,7 @@ html {
 
 ul {
   list-style-type: none;
+  width: 100%;
 }
 
 body {
@@ -228,6 +229,10 @@ body {
   margin-bottom: 8px;
 }
 
+.intent-item {
+  width: 88%;
+}
+
 .intent-item .intent-button {
   position: relative;
   display: block;
@@ -276,7 +281,7 @@ body {
 .intent-item .icon-arrow {
   position: absolute;
   display: inline-block;
-  font-size: 0.7em;
+  font-size: 1em;
   color: #2E5288;
   top: 12px;
   right: 10px;
