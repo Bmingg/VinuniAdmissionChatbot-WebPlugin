@@ -374,17 +374,6 @@ body {
   background: var(--left-msg-bg);
   box-shadow: var(--paper-like-shadow);
 }
-
-.copy-img {
-  position: absolute;
-  right: -32px;
-  top: 10px;
-}
-.link-img {
-  position: absolute;
-  right: -29px;
-  top: 37px;
-}
 .msg-text {
   font-weight: 300;
   margin-left: 10px;
