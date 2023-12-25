@@ -226,4 +226,3 @@ function updateQuestionText(intentName) {
   }
 }
 
->>>>>>> main
