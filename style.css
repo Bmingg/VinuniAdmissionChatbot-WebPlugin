@@ -226,6 +226,9 @@ body {
   left: 10px;
   top: 6px;
 }
+.intent-list {
+  margin-bottom: 8px;
+}
 
 .intent-list .intent-item {
   margin-bottom: 8px;
@@ -352,15 +355,15 @@ body {
   display: block;
   max-height: 9999px;
   transform: scaleY(1);
-  animation: showAnimation 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
+  animation: showAnimation 0.05s ease-in-out;
+  transition: max-height 0.05s ease-in-out;
 }
 
 .intent-item .hide {
   max-height: 0;
   transform: scaleY(0);
-  animation: hideAnimation 0.2s ease-out;
-  transition: max-height 0.2s ease-out;
+  animation: hideAnimation 0.05s ease-out;
+  transition: max-height 0.05s ease-out;
 }
 
 .msg-bubble {

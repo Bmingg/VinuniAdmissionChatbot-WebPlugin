@@ -216,9 +216,9 @@ text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
 function updateQuestionText(intentName) {
   if (counter == 0) {
     document.getElementById("welcome-msg").style.display = "none";
+    document.getElementsByClassName("nav-bar")[0].style.display = "block";
     counter += 1;
   }
-  document.getElementsByClassName("nav-bar")[0].style.display = "block";
   const questionTextElement = document.querySelector('#default-text');
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
