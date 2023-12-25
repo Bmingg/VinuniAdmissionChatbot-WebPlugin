@@ -223,6 +223,7 @@ function updateQuestionText(intentName) {
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
     questionTextElement.textContent = `What do you want to ask about ${intentName}?`;
+    console.log(questionTextElement.textContent);
     messageBubble.style.display = 'block';
   }
 }
