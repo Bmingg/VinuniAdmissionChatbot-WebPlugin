@@ -72,6 +72,10 @@ html {
   box-sizing: inherit;
 }
 
+ul {
+  list-style-type: none;
+}
+
 body {
   display: flex;
   justify-content: center;
