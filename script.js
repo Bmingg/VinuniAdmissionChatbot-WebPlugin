@@ -173,6 +173,8 @@ function closeAllDropdowns() {
 function handleIntentClick(intentButton) {
   showOnlyParentIntent(intentButton.closest('.intent-item'));
   updateQuestionText(intentButton.textContent.trim());
+  chosen_intent_id = intentButton.id;
+  topic = chosen_intent_id;
 }
 
 function handleSubintentClick(subintentButton) {
@@ -180,6 +182,8 @@ function handleSubintentClick(subintentButton) {
   closeAllDropdowns();
   showOnlyParentIntent(parentIntent);
   updateQuestionText(subintentButton.textContent.trim());
+  chosen_intent_id = subintentButton.id;
+  topic = chosen_intent_id;
 }
 
 function showOnlyParentIntent(parentIntent) {
