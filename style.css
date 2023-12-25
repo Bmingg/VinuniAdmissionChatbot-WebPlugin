@@ -118,13 +118,20 @@ body {
 
 .msger-header {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 9px;
   border-bottom: var(--border);
-  background: #2E5288;
-  /* color: #2E5288; */
+  background-color: #2E5288;
 }
+
+/* .nav-header{
+  padding: 9px 9px 0 9px;
+  display: none;
+  background-color: transparent;
+} */
+
 
 .msger-header-title {
   color: white;
@@ -196,12 +203,14 @@ body {
   margin-bottom: 0;
 }
 .nav-bar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   width: 88%;
   height: 40px;
   border-radius: 10px;
   padding: 5px;
-  background: white;
+  background-color: white;
   border: 1px solid black;
   display: none;
 }

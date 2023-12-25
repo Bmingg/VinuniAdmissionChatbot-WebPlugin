@@ -217,13 +217,13 @@ function updateQuestionText(intentName) {
   if (counter == 0) {
     document.getElementById("welcome-msg").style.display = "none";
     document.getElementsByClassName("nav-bar")[0].style.display = "block";
+    // document.getElementsByClassName("nav-header")[0].style.display = "block";
     counter += 1;
   }
   const questionTextElement = document.querySelector('#default-text');
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
     questionTextElement.textContent = `What do you want to ask about ${intentName}?`;
-    console.log(questionTextElement.textContent);
     messageBubble.style.display = 'block';
   }
 }
