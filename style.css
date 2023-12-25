@@ -248,9 +248,9 @@ body {
 
 .intent-button .icon-bg {
   display: inline-block;
-  border-radius: 5px;
-  width: 24px;
-  height: 20px;
+  border-radius: 10px;
+  width: 31px;
+  height: 27px;
   vertical-align: middle;
 } 
 .undergrad-icon-bg {
@@ -268,7 +268,13 @@ body {
 .abt-vinuni-icon-bg {
   background: url(img/abt-vinuni-icon.svg)rgba(231, 226, 108, 0.40) no-repeat center center;
 }
-
+.itent-button .intent-text{
+  vertical-align: middle;
+  padding: 5px 0;
+  margin-left: 40px;
+  font-weight: 550;
+  font-family: Montserrat;
+}
 .intent-item .icon-arrow {
   position: absolute;
   display: inline-block;
