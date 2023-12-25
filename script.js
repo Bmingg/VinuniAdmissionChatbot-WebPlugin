@@ -4,6 +4,7 @@ const msgerChat = get(".msger-chat");
 var loggedIn = false;
 var userHash = "";
 var topic = "";
+var counter = 0;
 const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
@@ -197,8 +198,26 @@ function showOnlyParentIntent(parentIntent) {
   }
 }
 
+function text(url) {
+  return fetch(url).then(res => res.text());
+}
+
+var response = "";
+
+text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
+  let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+  let ip = data.match(ipRegex)[0];
+  console.log(ip);
+  response = ip;
+});
+
+// jQuery.get
 // Updates the question text based on the selected intent or subintent
 function updateQuestionText(intentName) {
+  if (counter == 0) {
+    document.getElementById("welcome-msg").style.display = "none";
+    counter += 1;
+  }
   const questionTextElement = document.querySelector('.msg-bubble .msg-text');
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
@@ -207,3 +226,4 @@ function updateQuestionText(intentName) {
   }
 }
 
+>>>>>>> main
