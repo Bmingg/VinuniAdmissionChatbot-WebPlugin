@@ -219,7 +219,7 @@ function updateQuestionText(intentName) {
     counter += 1;
   }
   document.getElementsByClassName("nav-bar")[0].style.display = "block";
-  const questionTextElement = document.querySelector('.msg-bubble .msg-text');
+  const questionTextElement = document.querySelector('#default-text');
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
     questionTextElement.textContent = `What do you want to ask about ${intentName}?`;
