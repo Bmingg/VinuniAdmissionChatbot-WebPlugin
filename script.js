@@ -103,23 +103,107 @@ function openChat() {
 function closeChat() {
   document.getElementById("chatbox").style.display = "none";
 }
-var chosen_intent_id;
-var intents = document.getElementsByClassName("intent-item");
 
-function closeIntentList(chosen_intent) {
-  chosen_intent_id = chosen_intent.parentNode.id;
-
-  for(var i=0, len=intents.length; i<len; i++)
-  {
-      if (intents[i].id != chosen_intent_id) {
-        intents[i].style.display = "none";
-      }
-  }
-  topic = chosen_intent_id
-} 
-
+// Opens the full list of intents
 function openIntentList() {
-  for(var i=0, len=intents.length; i<len; i++) {
-        intents[i].style.display = "block";
+  showAllIntents();
+}
+
+// Shows all intents and hides any open subintent menus
+function showAllIntents() {
+  const intents = document.querySelectorAll('.intent-list .intent-item');
+  intents.forEach(intent => {
+    intent.style.display = 'block'; // Show all intent items
+    intent.querySelectorAll('.subintent-menu').forEach(subMenu => {
+      subMenu.classList.remove('show');
+      subMenu.classList.add('hide');
+      const arrow = intent.querySelector('.icon-arrow');
+      if (arrow) {
+        arrow.classList.remove('open');
+        arrow.classList.add('close');
+      }
+    });
+  });
+}
+
+// Handles the main intent buttons with dropdown functionality
+const intentButtons = document.querySelectorAll('.intent-list .intent-button[data-toggle="dropdown"]');
+intentButtons.forEach(button => {
+  button.addEventListener('click', function(event) {
+    event.preventDefault();
+    toggleDropdownMenu(this);
+  });
+});
+
+// Toggles the dropdown menu for a given intent button
+function toggleDropdownMenu(button) {
+  const menu = button.nextElementSibling;
+  const arrow = button.querySelector('.icon-arrow');
+  const isMenuOpen = menu.classList.contains('show');
+
+  if (isMenuOpen) {
+    menu.classList.remove('show');
+    menu.classList.add('hide');
+    arrow.classList.remove('open');
+    arrow.classList.add('close');
+  } else {
+    closeAllDropdowns(); 
+    menu.classList.add('show');
+    menu.classList.remove('hide');
+    arrow.classList.add('open');
+    arrow.classList.remove('close');
   }
 }
+
+// Closes all dropdown menus
+function closeAllDropdowns() {
+  const allDropdowns = document.querySelectorAll('.intent-list .intent-item .subintent-menu');
+  allDropdowns.forEach(function(dropdownMenu) {
+    dropdownMenu.classList.remove('show');
+    dropdownMenu.classList.add('hide');
+    const arrow = dropdownMenu.previousElementSibling.querySelector('.icon-arrow');
+    if (arrow) {
+      arrow.classList.remove('open');
+      arrow.classList.add('close');
+    }
+  });
+}
+
+// Handles clicking on an intent without a dropdown
+function handleIntentClick(intentButton) {
+  showOnlyParentIntent(intentButton.closest('.intent-item'));
+  updateQuestionText(intentButton.textContent.trim());
+  chosen_intent_id = intentButton.id;
+  topic = chosen_intent_id;
+}
+
+function handleSubintentClick(subintentButton) {
+  const parentIntent = subintentButton.closest('.intent-item');
+  closeAllDropdowns();
+  showOnlyParentIntent(parentIntent);
+  updateQuestionText(subintentButton.textContent.trim());
+  chosen_intent_id = subintentButton.id;
+  topic = chosen_intent_id;
+}
+
+function showOnlyParentIntent(parentIntent) {
+  const intents = document.querySelectorAll('.intent-list .intent-item');
+  intents.forEach(intent => {
+    intent.style.display = 'none';
+  });
+
+  if (parentIntent) {
+    parentIntent.style.display = 'block';
+  }
+}
+
+// Updates the question text based on the selected intent or subintent
+function updateQuestionText(intentName) {
+  const questionTextElement = document.querySelector('.msg-bubble .msg-text');
+  const messageBubble = document.getElementById('message-bubble');
+  if (questionTextElement) {
+    questionTextElement.textContent = `What do you want to ask about ${intentName}?`;
+    messageBubble.style.display = 'block';
+  }
+}
+
