@@ -2,10 +2,11 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 var loggedIn = false;
+var endChat = false;
 var userHash = "";
 var topic = "";
 var counter = 0;
-const API_ENDPOINT = "https://us-central1-lightseeker-chatbot.cloudfunctions.net/VinGenie"
+const API_ENDPOINT = "https://us-central1-vingenie.cloudfunctions.net/Vingenie"
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
 // TODO: get user's city by location at the beginning
@@ -76,6 +77,21 @@ async function sendMessage(inputString, topic) {
   console.log(topic);
 
   return await response.json();
+}
+
+async function refreshChat() {
+  endChat = true;
+  const refresh = await fetch(API_ENDPOINT, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body : JSON.stringify( { userHash: userHash, endChat: endChat}),
+}) 
+
+  console.log("Refreshed")
+
+  // return await refresh.json();
 }
 
 function generateHash() {
