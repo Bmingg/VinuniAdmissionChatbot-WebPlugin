@@ -6,7 +6,7 @@ var endChat = false;
 var userHash = "";
 var topic = "";
 var counter = 0;
-const API_ENDPOINT = "https://us-central1-vingenie.cloudfunctions.net/Vingenie"
+const API_ENDPOINT = "https://us-central1-vingenie.cloudfunctions.net/Vingenie2"
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
 // TODO: get user's city by location at the beginning
