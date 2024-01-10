@@ -236,6 +236,8 @@ body {
   top: 6px;
 }
 .intent-list {
+  position: sticky;
+  z-index: 1;
   margin-bottom: 8px;
 }
 
