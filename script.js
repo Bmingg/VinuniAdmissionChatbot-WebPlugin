@@ -121,6 +121,7 @@ function closeChat() {
   document.getElementById("chatbox").style.display = "none";
 }
 
+var opening = true
 // Opens the full list of intents
 function openIntentList() {
   showAllIntents();
