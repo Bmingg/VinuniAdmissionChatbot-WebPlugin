@@ -455,6 +455,7 @@ body {
   background: #ddd;
   border-radius: 10px; */
   flex-shrink: 0;
+  cursor: not-allowed;
   border-radius: 17px;
   background: #ddd;
   box-shadow: 3.76615px 3.76615px 7.53231px 0px rgba(212, 192, 192, 0.25);

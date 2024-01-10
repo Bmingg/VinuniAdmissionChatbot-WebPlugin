@@ -2,7 +2,7 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 var loggedIn = false;
-var endChat = "";
+var endChat = false;
 var userHash = "";
 var topic = "";
 var counter = 0;
@@ -80,7 +80,8 @@ async function sendMessage(inputString, topic) {
 }
 
 async function refreshChat() {
-  endChat = "True";
+  endChat = true;
+  console.log(userHash)
   const refresh = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -88,11 +89,22 @@ async function refreshChat() {
     },
     body : JSON.stringify( { userHash: userHash, question:"", endChat: endChat}),
 }) 
-
   console.log("Refreshed")
+  input = document.getElementsByClassName("msger-input")[0];
+  input.disabled = true;
+  input.style.cursor = "not-allowed";
+  const messages = document.querySelectorAll('.left-msg, .right-msg');
+  messages.forEach(message => {
+    message.style.display = 'none'; // hide all old messages
+  });
+  document.getElementById("welcome-msg").style.display = "block";
+  document.getElementsByClassName("nav-bar")[0].style.display = "none";
+  // document.getElementsByClassName("nav-header")[0].style.display = "block";
+  counter = 0;
+  showAllIntents();
+}
 
   // return await refresh.json();
-}
 
 function generateHash() {
   const crypto = window.crypto || window.msCrypto;
@@ -237,6 +249,9 @@ function updateQuestionText(intentName) {
     // document.getElementsByClassName("nav-header")[0].style.display = "block";
     counter += 1;
   }
+  input = document.getElementsByClassName("msger-input")[0];
+  input.disabled = false;
+  input.style.cursor = "default";
   const questionTextElement = document.querySelector('#default-text');
   const messageBubble = document.getElementById('message-bubble');
   if (questionTextElement) {
