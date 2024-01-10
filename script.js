@@ -2,7 +2,7 @@ const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 var loggedIn = false;
-var endChat = false;
+var endChat = "";
 var userHash = "";
 var topic = "";
 var counter = 0;
@@ -80,13 +80,13 @@ async function sendMessage(inputString, topic) {
 }
 
 async function refreshChat() {
-  endChat = true;
+  endChat = "True";
   const refresh = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
     },
-    body : JSON.stringify( { userHash: userHash, endChat: endChat}),
+    body : JSON.stringify( { userHash: userHash, question:"", endChat: endChat}),
 }) 
 
   console.log("Refreshed")
