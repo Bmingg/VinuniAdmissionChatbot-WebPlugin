@@ -58,7 +58,7 @@ async function botResponse(msgText) {
   try {
     const data =  await sendMessage(msgText, topic);
     console.log(data);
-    const message = data.name;
+    const message = data.response;
 
     appendMessage("left", message);
   } catch (error) {
