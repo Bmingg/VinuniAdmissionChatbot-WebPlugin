@@ -85,7 +85,9 @@ async function refreshChat() {
   console.log(userHash)
   input_send_btn = document.getElementsByClassName("msger-send-btn")[0];
   input = document.getElementsByClassName("msger-input")[0];
-  input.classList.add("loading");
+  loader = document.getElementsByClassName("loading")[0];
+  loader.style.display = "block";
+  input.placeholder = "";
   const refresh = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -94,6 +96,7 @@ async function refreshChat() {
     body : JSON.stringify( { userHash: userHash, question:"", endChat: endChat}),
 }) 
   console.log("Refreshed")
+  loader.style.display = "none";
   input_send_btn.disabled = false;
   input_disabled = true;
   input.placeholder = "Please choose an intent first!";
