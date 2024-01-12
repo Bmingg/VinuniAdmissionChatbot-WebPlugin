@@ -304,10 +304,10 @@ body {
 .intent-item .icon-arrow {
   position: absolute;
   display: inline-block;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #2E5288;
-  top: 12px;
-  right: 10px;
+  top: 14px;
+  right: 12px;
   vertical-align: middle;
 }
 
@@ -455,7 +455,6 @@ body {
   background: #ddd;
   border-radius: 10px; */
   flex-shrink: 0;
-  cursor: not-allowed;
   border-radius: 17px;
   background: #ddd;
   box-shadow: 3.76615px 3.76615px 7.53231px 0px rgba(212, 192, 192, 0.25);
@@ -484,3 +483,28 @@ body {
   background-color: #fcfcfe;
   background-image: url();
 }
+
+.loading:after {
+  content: ' .';
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}}
