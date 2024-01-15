@@ -6,7 +6,6 @@ var endChat = false;
 var userHash = "";
 var topic = "";
 var counter = 0;
-var input_disabled = true;
 const API_ENDPOINT = "https://us-central1-vingenie.cloudfunctions.net/Vingenie2"
 const BOT_NAME = "BOT";
 const PERSON_NAME = "VinNole";
@@ -60,7 +59,7 @@ async function botResponse(msgText) {
     const data =  await sendMessage(msgText, topic);
     console.log(data);
     const message = data.response;
-
+    document.getElementById("msgLoader").remove();
     appendMessage("left", message);
   } catch (error) {
     console.error(error);
@@ -70,7 +69,7 @@ async function botResponse(msgText) {
 async function sendMessage(inputString, topic) {
   // Add loader here
   const loader = `
-    <div class="msg left-msg">
+    <div class="msg left-msg" id="msgLoader">
       <span class="loader"></span>
     </div>
   `;
@@ -104,9 +103,11 @@ async function refreshChat() {
     body : JSON.stringify( { userHash: userHash, question:"", endChat: endChat}),
 }) 
   console.log("Refreshed")
+  input_send_btn.style.cursor = "not-allowed";
+  input.style.cursor = "not-allowed";
   loader.style.display = "none";
-  input_send_btn.disabled = false;
-  input_disabled = true;
+  input_send_btn.disabled = true;
+  input.disabled = true;
   input.placeholder = "Please choose an intent first!";
   const messages = document.querySelectorAll('.left-msg, .right-msg');
   messages.forEach(message => {
@@ -292,8 +293,12 @@ function updateQuestionText(intentName) {
     counter += 1;
     input_send_btn = document.getElementsByClassName("msger-send-btn")[0];
     input = document.getElementsByClassName("msger-input")[0];
+
+    input_send_btn.style.cursor = "default";
+    input.style.cursor = "default";
     input_send_btn.disabled = false;
-    input_disabled = false;
+    input.disabled = false;
+    
     input.placeholder = "Ask me anything..."
   }
   const questionTextElement = document.querySelector('#default-text');
@@ -301,13 +306,6 @@ function updateQuestionText(intentName) {
   if (questionTextElement) {
     questionTextElement.textContent = `What do you want to ask about ${intentName}?`;
     messageBubble.style.display = 'block';
-  }
-}
-
-function clickMessage() {
-  input_send_btn = document.getElementsByClassName("msger-send-btn")[0];
-  if (input_disabled) {
-    input_send_btn.disabled = true;
   }
 }
 
