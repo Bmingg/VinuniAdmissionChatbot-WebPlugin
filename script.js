@@ -60,7 +60,7 @@ async function botResponse(msgText) {
     const data =  await sendMessage(msgText, topic);
     console.log(data);
     const message = data.response;
-
+    document.getElementById("msgLoader").remove();
     appendMessage("left", message);
   } catch (error) {
     console.error(error);
@@ -70,7 +70,7 @@ async function botResponse(msgText) {
 async function sendMessage(inputString, topic) {
   // Add loader here
   const loader = `
-    <div class="msg left-msg">
+    <div class="msg left-msg" id="msgLoader">
       <span class="loader"></span>
     </div>
   `;
@@ -106,6 +106,7 @@ async function refreshChat() {
   console.log("Refreshed")
   loader.style.display = "none";
   input_send_btn.disabled = false;
+  input.disabled = true;
   input_disabled = true;
   input.placeholder = "Please choose an intent first!";
   const messages = document.querySelectorAll('.left-msg, .right-msg');
@@ -267,6 +268,7 @@ function updateQuestionText(intentName) {
     input = document.getElementsByClassName("msger-input")[0];
     input_send_btn.disabled = false;
     input_disabled = false;
+    input.disabled = false;
     input.placeholder = "Ask me anything..."
   }
   const questionTextElement = document.querySelector('#default-text');
