@@ -148,17 +148,44 @@ function closeChat() {
   document.getElementById("chatbox").style.display = "none";
 }
 
-var opening = true
 // Opens the full list of intents
-function openIntentList() {
-  showAllIntents();
+let isIntentListOpen = false;
+
+function toggleIntentList() {
+  if (isIntentListOpen) {
+    hideAllIntents();
+  } else {
+    showAllIntents();
+  }
+
+  isIntentListOpen = !isIntentListOpen;
 }
+
+
 
 // Shows all intents and hides any open subintent menus
 function showAllIntents() {
   const intents = document.querySelectorAll('.intent-list .intent-item');
   intents.forEach(intent => {
     intent.style.display = 'block'; // Show all intent items
+    intent.querySelectorAll('.subintent-menu').forEach(subMenu => {
+      subMenu.classList.remove('show');
+      subMenu.classList.add('hide');
+      const arrow = intent.querySelector('.icon-arrow');
+      if (arrow) {
+        arrow.classList.remove('open');
+        arrow.classList.add('close');
+      }
+    });
+  });
+}
+
+function hideAllIntents() {
+  const intents = document.querySelectorAll('.intent-list .intent-item');
+  intents.forEach(intent => {
+    intent.style.display = 'none'; // Hide all intent items
+
+    // Assuming you want to also hide submenus and reset arrows like in showAllIntents
     intent.querySelectorAll('.subintent-menu').forEach(subMenu => {
       subMenu.classList.remove('show');
       subMenu.classList.add('hide');
