@@ -454,6 +454,7 @@ body {
   /* flex: 1;
   background: #ddd;
   border-radius: 10px; */
+  cursor: not-allowed;
   flex-shrink: 0;
   border-radius: 17px;
   background: #ddd;
@@ -465,6 +466,7 @@ body {
   line-height: normal; 
 }
 .msger-send-btn {
+  cursor: not-allowed;
   margin-left: 10px;
   display: flex;
   padding: 6px;

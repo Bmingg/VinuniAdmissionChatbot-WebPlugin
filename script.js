@@ -104,6 +104,8 @@ async function refreshChat() {
     body : JSON.stringify( { userHash: userHash, question:"", endChat: endChat}),
 }) 
   console.log("Refreshed")
+  input_send_btn.style.cursor = "not-allowed";
+  input.style.cursor = "not-allowed";
   loader.style.display = "none";
   input_send_btn.disabled = false;
   input.disabled = true;
@@ -266,9 +268,13 @@ function updateQuestionText(intentName) {
     counter += 1;
     input_send_btn = document.getElementsByClassName("msger-send-btn")[0];
     input = document.getElementsByClassName("msger-input")[0];
+
+    input_send_btn.style.cursor = "default";
+    input.style.cursor = "default";
     input_send_btn.disabled = false;
-    input_disabled = false;
     input.disabled = false;
+    
+    input_disabled = false;
     input.placeholder = "Ask me anything..."
   }
   const questionTextElement = document.querySelector('#default-text');
