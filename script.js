@@ -68,6 +68,14 @@ async function botResponse(msgText) {
 }
 
 async function sendMessage(inputString, topic) {
+  // Add loader here
+  const loader = `
+    <div class="msg left-msg">
+      <span class="loader"></span>
+    </div>
+  `;
+  msgerChat.insertAdjacentHTML("beforeend", loader);
+  msgerChat.scrollTop += 500;
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: {
