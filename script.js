@@ -152,13 +152,16 @@ function closeChat() {
 let isIntentListOpen = false;
 
 function toggleIntentList() {
+  
   if (isIntentListOpen) {
     hideAllIntents();
   } else {
     showAllIntents();
   }
+  console.log(isIntentListOpen);
 
   isIntentListOpen = !isIntentListOpen;
+  console.log(isIntentListOpen);
 }
 
 
@@ -247,6 +250,7 @@ function handleIntentClick(intentButton) {
   updateQuestionText(intentButton.textContent.trim());
   chosen_intent_id = intentButton.id;
   topic = chosen_intent_id;
+  isIntentListOpen = false;
 }
 
 function handleSubintentClick(subintentButton) {
@@ -256,6 +260,7 @@ function handleSubintentClick(subintentButton) {
   updateQuestionText(subintentButton.textContent.trim());
   chosen_intent_id = subintentButton.id;
   topic = chosen_intent_id;
+  isIntentListOpen = false;
 }
 
 function showOnlyParentIntent(parentIntent) {
