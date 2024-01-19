@@ -306,11 +306,6 @@ function updateQuestionText(intentName) {
     
     input.placeholder = "Ask me anything..."
   }
-  const questionTextElement = document.querySelector('#default-text');
-  const messageBubble = document.getElementById('message-bubble');
-  if (questionTextElement) {
-    questionTextElement.textContent = `What do you want to ask about ${intentName}?`;
-    messageBubble.style.display = 'block';
-  }
+  appendMessage("left", `What do you want to ask about ${intentName}?`)
 }
 
